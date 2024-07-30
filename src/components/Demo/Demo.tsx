@@ -5,11 +5,11 @@ import { data } from '../../assets/data.js'
 const InnerDemo = () => {
     return (
         <div>
-            <DemoOrg 
+            {/* <DemoOrg 
                 id={data.id}
                 title={data.title}
                 word={data.word}
-                link={data.link} />
+                link={data.link} /> */}
         </div>
     )
 }
