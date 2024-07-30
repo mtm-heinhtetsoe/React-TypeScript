@@ -1,7 +1,6 @@
 import React from "react";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Demo } from "../../Demo";
 
 export const Home = () => {
     return (
