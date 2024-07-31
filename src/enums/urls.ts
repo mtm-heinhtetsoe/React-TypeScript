@@ -37,6 +37,10 @@ export const PAGE_URL = {
   PROFILE: '/user-profile',
   // ChangePasswordPage
   CHANGE_PASSWORD: '/change-password',
+  // POST LiST
+  POST_LIST: '/postList',
+  // Post Create
+  POST_CREATE: '/postCreate',
 };
 
 export const API_URL = {
@@ -45,7 +49,7 @@ export const API_URL = {
   EXAM_UPLOAD: `${PREFIX}/upload_examdata`,
   EXAM_DOWNLOAD: `${PREFIX}/download-examdata`,
   REGISTER: `${PREFIX}/register`,
-  LOGIN: `${PREFIX}/login`,
+  LOGIN: `/auth/login`,
   LOGOUT: `${PREFIX}/logout`,
   DATA_SEARCH: `${PREFIX}/search`,
   PARA_SEARCH: `${PREFIX}/search-kanji-para`,
@@ -53,7 +57,9 @@ export const API_URL = {
   FAVOURITE_LIST: `${PREFIX}/favouriteList`,
   EXAM_LEVEL: `${PREFIX}/title-list/`,
   EXAM_TEST: `${PREFIX}/question-list/`,
-  USER_LIST: `${PREFIX}/user_list`, 
+  USER_LIST: `/user/list`, 
+  POST_LIST: `/post/list`,
+  POST_CREATE: `/post/create`,
   TEST_LIST: `${PREFIX}/test-list/`,
   DATA_TEST: `${PREFIX}/get_data`,
   CREATE_FEEDBACK: `${PREFIX}/create-feedback-data`,

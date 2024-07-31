@@ -20,7 +20,7 @@ function Layout() {
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/postList">Posts</Nav.Link>
-                    <Nav.Link href="/">Link</Nav.Link>
+                    <Nav.Link href="/userList">Users</Nav.Link>
                     <Nav.Link href="/SignUp">Sign Up</Nav.Link>
                 </Nav>
                 <Nav>
