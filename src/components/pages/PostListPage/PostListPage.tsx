@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { categories, data } from "../../../assets/data"
 import { Item } from "../../atoms/Item/Item"
-import { TableRow } from "../../atoms/TableRow/TableRow"
 import { List } from "../../molecules/List/List"
 import { ListItem } from "../../molecules/ListItem/ListItem"
-import { ListTable } from "../../molecules/ListTable/ListTable"
 import { ModeContext } from "../Layout"
 import { PostList } from "./PostList"
 import { ROLE } from "../../../enums/role"
@@ -19,7 +17,6 @@ export const PostListPage = () => {
     const role: string | null = localStorage.getItem('role');
   
     const [postList, setPostList] = useState<any>([]);
-    const [loading, setLoading] = useState<boolean>(true);
   
     const handlePostList = (id?: number) => {
       setPostList((prevPosts: []) =>
@@ -31,12 +28,11 @@ export const PostListPage = () => {
       if (role === ROLE.ADMIN) {
         PostRepository.getAllPost().then((response: any) => {
           response && setPostList(response);
-          setLoading(false);
         });
       } else {
         navigate(PAGE_URL.ERROR);
       }
-    }, []);
+    }, [role, navigate]);
 
     return (
         <div>

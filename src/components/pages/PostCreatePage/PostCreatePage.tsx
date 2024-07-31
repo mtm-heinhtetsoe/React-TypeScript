@@ -9,14 +9,11 @@ import { PAGE_URL } from "../../../enums/urls";
 
 export const PostCreatePage = () => {
     const [success, setSuccess] = useState('');
-    const [response, setResponse] = useState(false);
     const navigate = useNavigate();
 
     const handleCreateSubmit: SubmitHandler<Post> = (data: Post) => {
-        console.log(data);
         PostRepository.createPost(data)
             .then((response: any) => {
-                setResponse(response.data);
                 let msg = "Post is created Successfully.";
                 setSuccess(msg);
                 setTimeout(() => navigate(PAGE_URL.POST_LIST), 3000);

@@ -30,7 +30,7 @@ export const UserListPage = () => {
     } else {
       navigate(PAGE_URL.ERROR);
     }
-  }, []);
+  }, [role, navigate]);
 
   return (
     <>
@@ -55,9 +55,4 @@ export const UserListPage = () => {
 
 const topTitle = css({
   textAlign: 'center',
-});
-
-const topPageHeading = css({
-  fontSize: 30,
-  margin: '17px 0px 44px',
 });

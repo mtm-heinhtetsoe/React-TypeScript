@@ -1,10 +1,7 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { UserListRepository } from '../../../repositories/UserListRepository';
-import { ROLE } from '../../../enums/role';
 import { color } from '../../../styles/theme';
-import { Link } from 'react-router-dom';
 import { PAGE_URL } from '../../../enums/urls';
 import { Button } from 'react-bootstrap';
 
@@ -29,28 +26,6 @@ type Props = {
 };
 
 export const PostList: FC<Props> = ({ postList, handlePostList }: Props) => {
-  const [open, setOpen] = useState<boolean>(false);
-  const [disabled, setDisabled] = useState<boolean>(false);
-  const [userId, setUserId] = useState<number>();
-
-  const handleDelete = (id: number) => {
-    setUserId(id);
-    setOpen(true);
-  };
-
-  const deleteUser = (e: React.MouseEvent<HTMLElement>, id?: number) => {
-    UserListRepository.deleteUser(id).then((response: any) => {
-      setOpen(false);
-      if (response.message == 'success') {
-        handlePostList(id);
-      }
-    });
-  };
-
-  const cancelChange = () => {
-    setOpen(false);
-  };
-
   return (
     <>
       <div css={tableWrap}>
@@ -114,36 +89,6 @@ const tableBodyRow = css({
 const actionBtn = css({
   padding: '7px 14px 6px',
   margin: '10px 10px'
-});
-
-const btn = css({
-  height: '35px !important',
-  top: '-9px',
-  maxWidth: '130px !important',
-  marginTop: '20px',
-  margin: '50px 10px 20px 10px',
-  border: 'initial',
-  padding: '10px 15px',
-  borderRadius: '10px',
-  width: '40%',
-  color: color.lightGrey,
-});
-
-const modalBox = css({
-  width: '35%',
-  height: '25%',
-  border: '1px solid' + color.darkTangerine,
-  backgroundColor: color.white,
-  padding: 20,
-  borderRadius: 10,
-  position: 'absolute',
-  top: '50%',
-  transform: 'translateY(-50%)',
-  left: 0,
-  right: 0,
-  margin: '0 auto',
-  textAlign: 'center',
-  color: color.darkTangerine,
 });
 
 const tableWrap = css({

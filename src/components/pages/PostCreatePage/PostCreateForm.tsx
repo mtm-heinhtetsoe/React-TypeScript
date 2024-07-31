@@ -97,11 +97,6 @@ const formTitleContainer = css({
     marginBottom: 45,
 });
   
-const signUpText = css({
-    textDecoration: 'underline',
-    textUnderlineOffset: '4px',
-});
-  
 const errorMessage = css({
     backgroundColor: color.venetianRed,
     borderColor: color.candyPink,
@@ -112,11 +107,5 @@ const errorMessage = css({
     marginBottom: 20,
     borderRadius: 4,
     fontSize: 14,
-    lineHeight: 2,
-});
-  
-const text = css({
-    textAlign: 'center',
-    paddingTop: 10,
     lineHeight: 2,
 });

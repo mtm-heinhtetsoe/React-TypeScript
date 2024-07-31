@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 import { css } from '@emotion/react';
 // import { yupResolver } from '@hookform/resolvers/yup';
 import { FormProvider, useForm } from 'react-hook-form';
-import { generateValidationSchema } from './validationSchema';
 import { FormContainer } from '../../forms/FormContainer';
 import { FormTitle } from '../../forms/FormTitle';
 import { FormLabel } from '../../forms/FormLabel';
@@ -20,7 +19,6 @@ type Props = {
 };
 
 export const SignUpForm = (props: Props) => {
-  const validationSchema = generateValidationSchema();
 
   const methods = useForm({
     // resolver: yupResolver(validationSchema),
