@@ -7,7 +7,7 @@ const createConnection = (): AxiosInstance => {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Headers': 'Content-Type',
-            'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTI1MjE3NzYxZTVkYmEzNWZiYTBlNDhjYWJkZWZmYTAwMTYzNDE0OTU2NzdjNzY4NzBhMTRlYzZiMTBiMDQwNDRjOTI0OTVhNWM1MjdkMmMiLCJpYXQiOjE3MjI0MTc0NTAuOTMwNzQ2LCJuYmYiOjE3MjI0MTc0NTAuOTMwNzUsImV4cCI6MTcyMjQyNDY1MC43OTA4OTIsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.kjUzjFf2pT-FZvn89xqLtLoq1uCJGvnz9jX_0vyxQ08sglYskPDY0B2-YL_v6mMQf9fQh5lotdtjwwUgQsebPmS-Yfii7EdeINP91Wr3qS5vYjbyRoJ6YdHTFN0TR4BTQ73OkKkdDSJ5s2r-C2pO4KOifgEhHtY5wFsY5wCpgu8Jyil1IK_NIYzzO4sAuOSvq0Kn2LNiXxCVuibvT6K-yE6oX2z6A4gcd2HIkhClZj86QA0LYVPlW0CrmvGHcDLWCYxhn-PdjPWLG3N9cmgoii51yZO95rI78glWFQakVsBH4h_-2zVfzA6DnmtU2Hcbf4Ll_v4Kh7vstK8MBeJ9EDL4VInrmndFRfoAxxM6aoBiyQpuAG8qLgClm3TccDWnXUTvLw-BiYuqsEs9VYsiqV9MlvuV4q7AlPx1YNVcy6KBOdR-vx89SXyWui8Mg-WQVlLa1bYc7NiJeRD6CJ2LGDx_7CiFz1zLlr0bQTtXYqt8Uk5EQSUzd8j6ZyhNliz7jTKgduIsZ1owQTfRr80zhneizcv6LSoDe89rCPj38qTXDtPre547wHyLXLG4zRTNF1Imlkxt9--dKRoICfYP9M_vylLTSCgfHavfW1xhioglgVsYkCpYTja9RAn5-7em0bU2O8cu5IinXQzcfFzn0jcnmW5q9pryeBz1-h3t_tQ'
+            'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjc1N2NkZjY5MTc2ZjRkMDlmYjRmY2UwNzc5YTllNWYwM2ExNGI0ZWM1NmE0YjAyZTA3Njg4NmM0YzI3OTZkODk2MjQ4NTE0MThjYzdlMTgiLCJpYXQiOjE3MjI0ODQ1OTMuNDM1MjIxLCJuYmYiOjE3MjI0ODQ1OTMuNDM1MjI1LCJleHAiOjE3MjI0OTE3OTMuMjk1MTUyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.J06UmgpAxHPb1viDua8cYbJougfWRiVIvYOxPXtfMDfYUZC-6Rp_2svT1rE-NzmXaUtS5rO2-Yzy_In0aq5x05dR2fAi8wFNO5tvMfnFjX95Eqa9DdDnQyGM755CYHYmpESpGo0ItYg3CV3fnWowUKXxAWeVXxZXbZ9EOGkQ0_02dsbvHwHeQ-4D_u5gYNJJRILj0qdyih_z3Jm612qgxWo_6Z-JlNqj8nMC3vQd0t2RfvUSOCC0eij25ZQtQvXFZKxFEFtc8kw3oSGsF8aYKtwX8cU-3Np2kzx_9nOjmoyNafnXLay_0lhQTeKUD3cT5qFkgSHt89zznBn90dknVqUaaCxBoAtjsobVIKto9soteyBFhyJvwR4pMJGUNgtSnTIpbx6nwnKGybeAQX1Z2bawY4mGCI_avInGWXeaSHf7_ojodNGt58MXI4TLjTCcmDJ9m9JoKTtBFX_qpoJzxSCp7OzG9pm7kbxn7UwojaMstLqv7KVDudEjP8LTtSD6rS-ZwvZWcmciX29rSyDJbbz8Gs8Z5yiChfbTePLXVkxPUzGu3qKMo6jsHHRDn7iNYTzXh4487oIRBCPaPArCdaS6sOrEBMFYDnAnCKG2eTxpeVRPgrp3u6_4YpWgXzCfUbRSJsWxOsNxp-THEOED2KR-2nlLB5Kni0RAt2sYhTE'
         },
     });
 
@@ -57,11 +57,10 @@ const patch = async <T,>(
   
 const del = async <T,>(
     path: string,
-    data?: any,
     config?: AxiosRequestConfig,
 ) => {
     const connection = createConnection();
-    const response = await connection.delete<T>(path, { ...config, data });
+    const response = await connection.delete<T>(path, config);
     return response.data;
 };
   

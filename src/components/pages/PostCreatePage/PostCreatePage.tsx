@@ -15,7 +15,7 @@ export const PostCreatePage = () => {
         PostRepository.createPost(data)
             .then((response: any) => {
                 let msg = "Post is created Successfully.";
-                setSuccess(msg);
+                if (response) setSuccess(msg);
                 setTimeout(() => navigate(PAGE_URL.POST_LIST), 3000);
             })
             .catch((response: any) => setSuccess(response))

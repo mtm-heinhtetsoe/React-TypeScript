@@ -41,6 +41,7 @@ export const PAGE_URL = {
   POST_LIST: '/postList',
   // Post Create
   POST_CREATE: '/postCreate',
+  POST_EDIT: "/postEdit/"
 };
 
 export const API_URL = {
@@ -60,6 +61,9 @@ export const API_URL = {
   USER_LIST: `/user/list`, 
   POST_LIST: `/post/list`,
   POST_CREATE: `/post/create`,
+  POST_UPDATE: `/post/edit/`,
+  POST_DETAIL: `/post/`,
+  POST_DELETE: `/post/delete/`,
   TEST_LIST: `${PREFIX}/test-list/`,
   DATA_TEST: `${PREFIX}/get_data`,
   CREATE_FEEDBACK: `${PREFIX}/create-feedback-data`,

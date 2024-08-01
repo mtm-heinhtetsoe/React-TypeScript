@@ -1,9 +1,10 @@
-import { FC } from 'react';
+import { FC, MouseEventHandler } from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { color } from '../../../styles/theme';
 import { PAGE_URL } from '../../../enums/urls';
 import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 type Post = {
     id: number,
@@ -26,6 +27,11 @@ type Props = {
 };
 
 export const PostList: FC<Props> = ({ postList, handlePostList }: Props) => {
+  const navigate =useNavigate();
+  const edit = (id: number) => {
+    navigate(PAGE_URL.POST_EDIT + `${id}`)
+  }
+
   return (
     <>
       <div css={tableWrap}>
@@ -40,6 +46,7 @@ export const PostList: FC<Props> = ({ postList, handlePostList }: Props) => {
               <th>Status</th>
               <th>Created User</th>
               <th>Created At</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -52,6 +59,10 @@ export const PostList: FC<Props> = ({ postList, handlePostList }: Props) => {
                   <td>{post.status}</td>
                   <td>{post.created_user}</td>
                   <td>{post.created_at}</td>
+                  <td>
+                    <Button css={actionBtn} variant='info' onClick={() => edit(post.id)}>Edit</Button>
+                    <Button css={actionBtn} variant='danger' onClick={() => handlePostList(post.id)}>Delete</Button>
+                  </td>
                 </tr>
               );
             })}

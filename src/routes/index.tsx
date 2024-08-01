@@ -6,6 +6,7 @@ import { SignUpPage } from "../components/pages/SignUpPage/SingUpPage";
 import { PostListPage } from "../components/pages/PostListPage/PostListPage";
 import { UserListPage } from "../components/pages/UserListPage/UserListPage";
 import { PostCreatePage } from "../components/pages/PostCreatePage/PostCreatePage";
+import { PostEditPage } from "../components/pages/PostCreatePage/PostEditPage";
 
 const routes = () => {
     return (
@@ -15,6 +16,7 @@ const routes = () => {
                     <Route index element={<Home />}/>
                     <Route path="/postList" element={<PostListPage />}/>
                     <Route path="/postCreate" element={<PostCreatePage />}/>
+                    <Route path="/postEdit/:id" element={<PostEditPage />}/>
                     <Route path="/userList" element={<UserListPage />}/>
                     <Route path="/signup" element={<SignUpPage />}/>
                     <Route path="*" element={<NoMatch />} />
