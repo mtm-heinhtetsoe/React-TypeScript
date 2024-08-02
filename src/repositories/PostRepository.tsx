@@ -11,28 +11,28 @@ type PostResultSchema = {
     msg: any;
 };
 
-const getAllPost = async () => {
-    const response = await Repository.get(API_URL.POST_LIST);
+const getAllPost = async (token: string) => {
+    const response = await Repository.get(API_URL.POST_LIST, token);
     return response;
 };
 
-const getPostById = async (id: number) => {
-    const response = await Repository.get(API_URL.POST_DETAIL + `${id}`);
+const getPostById = async (id: number, token: string) => {
+    const response = await Repository.get(API_URL.POST_DETAIL + `${id}`, token);
     return response;
 }
 
-const createPost = async (post: Post) => {
-    const response = await Repository.post<PostResultSchema[]>(API_URL.POST_CREATE, post);
+const createPost = async (token: string, post: Post) => {
+    const response = await Repository.post<PostResultSchema[]>(API_URL.POST_CREATE, token, post);
     return response;
 };
 
-const updatePost = async (id: number, post: Post) => {
-    const response = await Repository.post<PostResultSchema[]>(API_URL.POST_UPDATE + `${id}`, post);
+const updatePost = async (id: number, token: string, post: Post) => {
+    const response = await Repository.post<PostResultSchema[]>(API_URL.POST_UPDATE + `${id}`, token, post);
     return response;
 }
 
-const deletePost = async (id: number) => {
-    const response = await Repository.del<PostResultSchema[]>(API_URL.POST_DELETE + `${id}`);
+const deletePost = async (id: number, token: string) => {
+    const response = await Repository.del<PostResultSchema[]>(API_URL.POST_DELETE + `${id}`, token);
     return response;
 }
 

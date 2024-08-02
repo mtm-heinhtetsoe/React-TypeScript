@@ -23,7 +23,7 @@ type Post = {
 
 type Props = {
   postList: Post[];
-  handlePostList: (id?: number) => void;
+  handlePostList: (id: number) => void;
 };
 
 export const PostList: FC<Props> = ({ postList, handlePostList }: Props) => {
@@ -36,7 +36,6 @@ export const PostList: FC<Props> = ({ postList, handlePostList }: Props) => {
     <>
       <div css={tableWrap}>
         <Button href={PAGE_URL.POST_CREATE} css={actionBtn}>Create</Button>
-        {/* <Link to={PAGE_URL.POST_CREATE}>Create Post</Link> */}
         <table css={table}>
           <thead css={tableHeader}>
             <tr css={tableHeaderRow}>

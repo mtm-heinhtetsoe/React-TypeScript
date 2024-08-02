@@ -6,6 +6,8 @@ import { UserListRepository } from '../../../repositories/UserListRepository';
 import { ROLE } from '../../../enums/role';
 import { PAGE_URL } from '../../../enums/urls';
 import { Heading } from '../../atoms/Heading/Heading';
+import { useAppSelector } from '../../../app/hooks';
+import { getToken } from '../../auth/authSlice';
 
 export const UserListPage = () => {
   const navigate = useNavigate();
@@ -14,6 +16,7 @@ export const UserListPage = () => {
 
   const [userList, setUserList] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const token = useAppSelector(getToken);
 
   const handleUserList = (id?: number) => {
     setUserList((prevUsers: []) =>
@@ -23,7 +26,7 @@ export const UserListPage = () => {
 
   useEffect(() => {
     if (role === ROLE.ADMIN) {
-      UserListRepository.getAllUser().then((response: any) => {
+      UserListRepository.getAllUser(token).then((response: any) => {
         response && setUserList(response);
         setLoading(false);
       });

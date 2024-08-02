@@ -1,18 +1,21 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { PostCreateForm } from "./PostCreateForm"
-import { useState } from "react";
+import React, { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 import { Post, PostRepository } from "../../../repositories/PostRepository";
 import { useNavigate } from "react-router-dom";
 import { PAGE_URL } from "../../../enums/urls";
+import { useAppSelector } from "../../../app/hooks";
+import { getToken } from "../../auth/authSlice";
 
 export const PostCreatePage = () => {
     const [success, setSuccess] = useState('');
     const navigate = useNavigate();
+    const token = useAppSelector(getToken);
 
     const handleCreateSubmit: SubmitHandler<Post> = (data: Post) => {
-        PostRepository.createPost(data)
+        PostRepository.createPost(token, data)
             .then((response: any) => {
                 let msg = "Post is created Successfully.";
                 if (response) setSuccess(msg);

@@ -3,8 +3,10 @@ import { css } from "@emotion/react";
 import { PostCreateForm } from "./PostCreateForm"
 import { useEffect, useState } from "react";
 import { SubmitHandler } from "react-hook-form";
-import { Post, PostRepository } from "../../../repositories/PostRepository";
 import { useNavigate, useParams } from "react-router-dom";
+import { useAppSelector } from "../../../app/hooks";
+import { getToken } from "../../auth/authSlice";
+import { Post, PostRepository } from "../../../repositories/PostRepository";
 import { PAGE_URL } from "../../../enums/urls";
 
 export const PostEditPage = () => {
@@ -13,11 +15,12 @@ export const PostEditPage = () => {
     const navigate = useNavigate();
 
     const { id } = useParams();
+    const token = useAppSelector(getToken);
 
     useEffect(() => getPost(Number(id)), [id]);
 
     const getPost = (id: number) => {
-        PostRepository.getPostById(id)
+        PostRepository.getPostById(id, token)
             .then((response: any) => {
                 setPost(response);
             })
@@ -25,7 +28,7 @@ export const PostEditPage = () => {
     }
 
     const handleUpdateSubmit: SubmitHandler<Post> = (data: Post) => {
-        PostRepository.updatePost(Number(id), data)
+        PostRepository.updatePost(Number(id), token, data)
             .then((response: any) => {
                 let msg = "Post is updated Successfully.";
                 if (response) setSuccess(msg);

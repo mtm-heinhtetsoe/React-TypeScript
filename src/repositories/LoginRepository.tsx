@@ -3,16 +3,16 @@ import { API_URL } from '../enums/urls';
 import { Repository } from './Repository';
 
 type LoginResultSchema = {
-  status: any;
-  data: any;
-  user: any;
-  access_token: any;
-  success: any;
-  error: any;
+  user_id: number;
+  user_name: string;
+  user_type: string;
+  token_type: string;
+  access_token: string;
+  expires_at: string;
 };
 
 const login = async (param: any) => {
-  const response = await Repository.post<LoginResultSchema>(
+  const response = await Repository.login<LoginResultSchema>(
     API_URL.LOGIN,
     param,
   );

@@ -1,13 +1,13 @@
 import { API_URL } from "../enums/urls"
 import { Repository } from "./Repository"
 
-const getAllUser = async () => {
-    const response = await Repository.get(API_URL.USER_LIST);
+const getAllUser = async (token: string) => {
+    const response = await Repository.get(API_URL.USER_LIST, token);
     return response;
 }
 
-const deleteUser = async (id?: number) => {
-    const response = await Repository.del(API_URL.USER_LIST + `/${id}`);
+const deleteUser = async (id: number, token: string) => {
+    const response = await Repository.del(API_URL.USER_LIST + `/${id}`, token);
     return response;
   };
 
